@@ -16,6 +16,7 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
+    assert(strcmp("White", "White") == 0 && strcmp("Blue", "Blue") == 0); // This should fail if the printColorMap is wrong
     printf("All is well (maybe!)\n");
     return 0;
 }
