@@ -5,11 +5,11 @@
 int printColorMap(char* buffer) {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-            printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[j]);  // Fixed the bug by using minorColor[j]
+	    printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
+            sprintf(buffer + strlen(buffer), "%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
         }
     }
     return i * j;
@@ -18,7 +18,7 @@ int printColorMap(char* buffer) {
 int main() {
     char buffer[1000] = {0};
     int result = printColorMap(buffer);
-    const char* expectedResult =
+    const char* expectedResults =
         "0 | White | Blue\n"
         "1 | White | Orange\n"
         "2 | White | Green\n"
@@ -46,7 +46,7 @@ int main() {
         "24 | Violet | Slate\n";
 
     assert(result == 25);
-    assert(strcmp(buffer, expectedResult) == 0); 
+    assert(strcmp(buffer, expectedResults) == 0);  
     printf("All is well (maybe!)\n");
     return 0;
 }
