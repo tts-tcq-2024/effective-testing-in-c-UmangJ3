@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <string.h>
 
-int printColorMap() {
+int printColorMap(char* buffer) {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 
